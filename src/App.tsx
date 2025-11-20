@@ -59,39 +59,48 @@ function App() {
   };
 
   return (
-    <div className="bg-white p-6">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
-          絵文字を選択
-        </h2>
+    <div className="bg-white p-6 min-h-screen">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">
+        絵文字を選択
+      </h2>
 
-        {/* 選択された絵文字の表示 */}
-        {selectedEmoji && (
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 mb-6 border-2 border-blue-200">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="text-6xl">{selectedEmoji.native}</div>
-                <div>
-                  <p className="text-lg font-semibold text-gray-800">
+      <div className="flex gap-6">
+        {/* 左側：選択された絵文字の表示 */}
+        <div className="w-80 flex-shrink-0">
+          {selectedEmoji ? (
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 sticky top-6">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="text-8xl">{selectedEmoji.native}</div>
+                <div className="w-full">
+                  <p className="text-xl font-semibold text-gray-800 mb-2">
                     {selectedEmoji.name || selectedEmoji.id}
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 mb-4">
                     Unicode: {selectedEmoji.unified}
                   </p>
+                  <button
+                    onClick={clearSelection}
+                    className="w-full px-4 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                  >
+                    クリア
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={clearSelection}
-                className="px-4 py-2 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-              >
-                クリア
-              </button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 sticky top-6">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="text-6xl text-gray-300">?</div>
+                <p className="text-gray-500">
+                  右側から絵文字を選択してください
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
 
-        {/* 絵文字ピッカー */}
-        <div className="flex justify-center">
+        {/* 右側：絵文字ピッカー */}
+        <div className="flex-1 flex justify-center">
           <Picker
             data={data}
             onEmojiSelect={onEmojiSelect}
