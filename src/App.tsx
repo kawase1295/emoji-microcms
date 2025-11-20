@@ -55,7 +55,7 @@ function App() {
   // 初期化時にiframeの高さを設定
   useEffect(() => {
     if (extensionId) {
-      setIframeHeight(500);
+      setIframeHeight(460);
     }
   }, [extensionId]);
 
@@ -104,7 +104,7 @@ function App() {
         {/* 左側：選択された絵文字の表示 */}
         <div className="w-80 flex-shrink-0 flex flex-col">
           {selectedEmoji ? (
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 h-full flex flex-col justify-start">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 h-full flex flex-col justify-center">
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="text-8xl">{selectedEmoji.native}</div>
                 <div className="w-full">
@@ -124,7 +124,7 @@ function App() {
               </div>
             </div>
           ) : (
-            <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 h-full flex flex-col justify-start">
+            <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 h-full flex flex-col justify-center">
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="text-6xl text-gray-300">?</div>
                 <p className="text-gray-500">
