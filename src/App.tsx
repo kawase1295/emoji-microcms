@@ -55,7 +55,7 @@ function App() {
   // 初期化時にiframeの高さを設定
   useEffect(() => {
     if (extensionId) {
-      setIframeHeight(600);
+      setIframeHeight(500);
     }
   }, [extensionId]);
 
