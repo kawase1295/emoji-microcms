@@ -60,16 +60,12 @@ function App() {
 
   return (
     <div className="bg-white p-6 min-h-screen">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">
-        絵文字を選択
-      </h2>
-
       <div className="flex gap-6">
         {/* 左側：選択された絵文字の表示 */}
         <div className="w-80 flex-shrink-0">
           {selectedEmoji ? (
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 sticky top-6">
-              <div className="flex flex-col items-center text-center gap-4">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 sticky top-6 h-[435px] flex flex-col overflow-auto">
+              <div className="flex flex-col items-center text-center gap-4 flex-1 justify-center">
                 <div className="text-8xl">{selectedEmoji.native}</div>
                 <div className="w-full">
                   <p className="text-xl font-semibold text-gray-800 mb-2">
@@ -88,8 +84,8 @@ function App() {
               </div>
             </div>
           ) : (
-            <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 sticky top-6">
-              <div className="flex flex-col items-center text-center gap-4">
+            <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 sticky top-6 h-[435px] flex flex-col overflow-auto">
+              <div className="flex flex-col items-center text-center gap-4 flex-1 justify-center">
                 <div className="text-6xl text-gray-300">?</div>
                 <p className="text-gray-500">
                   右側から絵文字を選択してください
@@ -107,6 +103,7 @@ function App() {
             locale="ja"
             theme="light"
             previewPosition="none"
+            perLine={15}
           />
         </div>
       </div>
