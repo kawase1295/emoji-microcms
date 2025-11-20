@@ -136,7 +136,7 @@ function App() {
         </div>
 
         {/* 右側：絵文字ピッカー */}
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-start">
           <Picker
             data={data}
             onEmojiSelect={onEmojiSelect}
